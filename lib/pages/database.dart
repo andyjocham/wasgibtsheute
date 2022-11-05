@@ -8,20 +8,18 @@ class Database extends StatefulWidget {
 }
 
 class _DatabaseState extends State<Database> {
-  List<ListItem> databaseList = [
-    ListItem(name: "Spaghetti", done: false),
-  ];
+  List<ListItem> databaseList = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Gerichte"),
+        title: const Text("Gerichte"),
       ),
       body: ListView.builder(
           itemCount: 5,
           itemBuilder: (context, index) {
-            return ListTile();
+            return const ListTile();
           }),
     );
   }
