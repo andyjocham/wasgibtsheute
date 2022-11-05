@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import '../models/list_item.dart';
 
-class Database extends StatefulWidget {
-  const Database({Key? key}) : super(key: key);
+class Gerichteliste extends StatefulWidget {
+  const Gerichteliste({Key? key}) : super(key: key);
   @override
-  _DatabaseState createState() => _DatabaseState();
+  _GerichtelisteState createState() => _GerichtelisteState();
 }
 
-class _DatabaseState extends State<Database> {
-  List<ListItem> databaseList = [];
+class _GerichtelisteState extends State<Gerichteliste> {
+  List<ListItem> gerichtelisteList = [];
 
   @override
   Widget build(BuildContext context) {

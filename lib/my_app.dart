@@ -43,7 +43,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
         },
         children: [
           Homescreen(),
-          Database(),
+          Gerichteliste(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
