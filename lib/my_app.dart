@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:was_gibts_heute/config.dart';
+import 'package:was_gibts_heute/models/list_item.dart';
 import 'package:was_gibts_heute/pages/addItem_screen.dart';
 import 'package:was_gibts_heute/pages/home_screen.dart';
 import 'package:was_gibts_heute/pages/database.dart';
@@ -10,17 +12,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: "Was gibts heute?",
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        initialRoute: '/',
-        routes: {
-          '/': (context) => NavigatorPage(),
-          '/add': (context) => AddItemScreen(),
-          '/data': (context) => Gerichteliste(),
-        });
+    return Configuration(
+      gerichtelisteList: [
+        ListItem(name: "Brot"),
+      ],
+      child: MaterialApp(
+          title: "Was gibts heute?",
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          initialRoute: '/',
+          routes: {
+            '/': (context) => NavigatorPage(),
+            '/add': (context) => AddItemScreen(),
+            '/data': (context) => Gerichteliste(),
+          }),
+    );
   }
 }
 

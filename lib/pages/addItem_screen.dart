@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:was_gibts_heute/models/list_item.dart';
+
+import '../config.dart';
 
 class AddItemScreen extends StatefulWidget {
   const AddItemScreen({super.key});
@@ -10,17 +11,24 @@ class AddItemScreen extends StatefulWidget {
 }
 
 class _AddItemScreenState extends State<AddItemScreen> {
+  final TextEditingController _textEditingController =
+      TextEditingController(text: "");
+
   @override
   Widget build(BuildContext context) {
+    final gerichteliste = context
+        .dependOnInheritedWidgetOfExactType<Configuration>()!
+        .gerichtelisteList;
     return Scaffold(
         appBar: AppBar(
-          title: Text("Gericht hinzufügen"),
+          title: const Text("Gericht hinzufügen"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
               TextFormField(
+                controller: _textEditingController,
                 autofocus: true,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
@@ -28,7 +36,14 @@ class _AddItemScreenState extends State<AddItemScreen> {
                   ),
                 ),
               ),
-              ElevatedButton(onPressed: () {}, child: Text("Hinzufügen")),
+              ElevatedButton(
+                  onPressed: () {
+                    gerichteliste.add(ListItem(
+                      name: _textEditingController.text,
+                    ));
+                    Navigator.pop(context);
+                  },
+                  child: const Text("Hinzufügen")),
             ],
           ),
         ));

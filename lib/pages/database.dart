@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import '../models/list_item.dart';
+import 'package:was_gibts_heute/config.dart';
 
 class Gerichteliste extends StatefulWidget {
   const Gerichteliste({Key? key}) : super(key: key);
@@ -9,16 +9,18 @@ class Gerichteliste extends StatefulWidget {
 }
 
 class _GerichtelisteState extends State<Gerichteliste> {
-  List<ListItem> gerichtelisteList = [ListItem(name: "Spaghetti")];
-
   @override
   Widget build(BuildContext context) {
+    final gerichteliste = context
+        .dependOnInheritedWidgetOfExactType<Configuration>()!
+        .gerichtelisteList;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Gerichte"),
       ),
       body: ListView.builder(
-          itemCount: gerichtelisteList.length,
+          itemCount: gerichteliste.length,
           itemBuilder: (context, index) {
             return Slidable(
               endActionPane: ActionPane(
@@ -35,7 +37,7 @@ class _GerichtelisteState extends State<Gerichteliste> {
                   SlidableAction(
                     onPressed: (context) {
                       setState(() {
-                        gerichtelisteList.removeAt(index);
+                        gerichteliste.removeAt(index);
                       });
                     },
                     backgroundColor: const Color(0xFFF70929),
@@ -46,13 +48,13 @@ class _GerichtelisteState extends State<Gerichteliste> {
                 ],
               ),
               child: ListTile(
-                title: Text(gerichtelisteList[index].name),
+                title: Text(gerichteliste[index].name),
               ),
             );
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/add');
+          Navigator.pushNamed(context, '/add').then((value) => setState(() {}));
         },
         child: const Icon(Icons.add),
       ),
