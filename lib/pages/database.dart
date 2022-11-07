@@ -51,7 +51,9 @@ class _GerichtelisteState extends State<Gerichteliste> {
             );
           }),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/add');
+        },
         child: const Icon(Icons.add),
       ),
     );
