@@ -9,6 +9,14 @@ class Gerichteliste extends StatefulWidget {
 }
 
 class _GerichtelisteState extends State<Gerichteliste> {
+  void _showSnackbar(BuildContext context, String text) {
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(text),
+      ));
+  }
+
   @override
   Widget build(BuildContext context) {
     final gerichteliste = context
@@ -22,6 +30,8 @@ class _GerichtelisteState extends State<Gerichteliste> {
       body: ListView.builder(
           itemCount: gerichteliste.length,
           itemBuilder: (context, index) {
+            final item = gerichteliste[index];
+
             return Slidable(
               endActionPane: ActionPane(
                 motion: const StretchMotion(),
@@ -39,6 +49,7 @@ class _GerichtelisteState extends State<Gerichteliste> {
                       setState(() {
                         gerichteliste.removeAt(index);
                       });
+                      _showSnackbar(context, '${item.name} gelöscht.');
                     },
                     backgroundColor: const Color(0xFFF70929),
                     foregroundColor: Colors.white,
@@ -48,7 +59,7 @@ class _GerichtelisteState extends State<Gerichteliste> {
                 ],
               ),
               child: ListTile(
-                title: Text(gerichteliste[index].name),
+                title: Text(item.name),
               ),
             );
           }),
