@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:was_gibts_heute/config.dart';
+import 'package:was_gibts_heute/models/list_item.dart';
 
 class Gerichteliste extends StatefulWidget {
   const Gerichteliste({Key? key}) : super(key: key);
@@ -36,9 +37,12 @@ class _GerichtelisteState extends State<Gerichteliste> {
               endActionPane: ActionPane(
                 motion: const StretchMotion(),
                 children: [
-                  const SlidableAction(
+                  SlidableAction(
                     flex: 2,
-                    onPressed: null,
+                    onPressed: (context) {
+                      Navigator.pushNamed(context, '/add', arguments: item)
+                          .then((value) => setState(() {}));
+                    },
                     backgroundColor: Color(0xFF7BC043),
                     foregroundColor: Colors.white,
                     icon: Icons.edit,
@@ -65,7 +69,8 @@ class _GerichtelisteState extends State<Gerichteliste> {
           }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushNamed(context, '/add').then((value) => setState(() {}));
+          Navigator.pushNamed(context, '/add', arguments: ListItem(name: ""))
+              .then((value) => setState(() {}));
         },
         child: const Icon(Icons.add),
       ),

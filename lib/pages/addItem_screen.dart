@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:was_gibts_heute/models/list_item.dart';
-
+import 'package:flutter/material.dart';
 import '../config.dart';
 
 class AddItemScreen extends StatefulWidget {
@@ -19,9 +18,19 @@ class _AddItemScreenState extends State<AddItemScreen> {
     final gerichteliste = context
         .dependOnInheritedWidgetOfExactType<Configuration>()!
         .gerichtelisteList;
+
+    final editedListItem =
+        ModalRoute.of(context)!.settings.arguments as ListItem;
+
+    bool inEditMode = editedListItem.name != "";
+
+    if (inEditMode) {
+      _textEditingController.text = editedListItem.name;
+    }
+
     return Scaffold(
         appBar: AppBar(
-          title: const Text("Gericht hinzufügen"),
+          title: Text(inEditMode ? "Gericht bearbeiten" : "Gericht hinzufügen"),
         ),
         body: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -43,7 +52,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
                     ));
                     Navigator.pop(context);
                   },
-                  child: const Text("Hinzufügen")),
+                  child: Text(inEditMode ? "Bearbeiten" : "Hinzufügen")),
             ],
           ),
         ));
