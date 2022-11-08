@@ -47,9 +47,18 @@ class _AddItemScreenState extends State<AddItemScreen> {
               ),
               ElevatedButton(
                   onPressed: () {
-                    gerichteliste.add(ListItem(
-                      name: _textEditingController.text,
-                    ));
+                    if (inEditMode) {
+                      ListItem newListItem = editedListItem.copyWith(
+                          name: _textEditingController.text);
+                      int indexOfEditedItem =
+                          gerichteliste.indexOf(editedListItem);
+                      gerichteliste[indexOfEditedItem] = newListItem;
+                    } else {
+                      gerichteliste.add(ListItem(
+                        name: _textEditingController.text,
+                      ));
+                    }
+
                     Navigator.pop(context);
                   },
                   child: Text(inEditMode ? "Bearbeiten" : "Hinzufügen")),
