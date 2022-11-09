@@ -5,7 +5,7 @@ import 'package:was_gibts_heute/config.dart';
 import 'package:was_gibts_heute/models/list_item.dart';
 import 'package:was_gibts_heute/pages/addItem_screen.dart';
 import 'package:was_gibts_heute/pages/home_screen.dart';
-import 'package:was_gibts_heute/pages/database.dart';
+import 'package:was_gibts_heute/pages/gerichte_liste.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

@@ -1,0 +1,3 @@
+ShoppingItem        = ListItem
+shoppingItemsList   = gerichteItemsList
+
