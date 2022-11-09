@@ -2,26 +2,34 @@
 import 'dart:convert';
 
 class ListItem {
+  final int? id;
   final String name;
 
-  ListItem({required this.name});
+  ListItem({
+    this.id,
+    required this.name,
+  });
 
   ListItem copyWith({
+    int? id,
     String? name,
   }) {
     return ListItem(
+      id: id ?? this.id,
       name: name ?? this.name,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
+      'id': id,
       'name': name,
     };
   }
 
   factory ListItem.fromMap(Map<String, dynamic> map) {
     return ListItem(
+      id: map['id'] != null ? map['id'] as int : null,
       name: map['name'] as String,
     );
   }
@@ -32,15 +40,15 @@ class ListItem {
       ListItem.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'ListItem(name: $name)';
+  String toString() => 'ListItem(id: $id, name: $name)';
 
   @override
   bool operator ==(covariant ListItem other) {
     if (identical(this, other)) return true;
 
-    return other.name == name;
+    return other.id == id && other.name == name;
   }
 
   @override
-  int get hashCode => name.hashCode;
+  int get hashCode => id.hashCode ^ name.hashCode;
 }
