@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
+  // wirft noch einen fehler...
 
   // BoxDecoration myBoxDecoration() {
   //   return BoxDecoration(
@@ -29,7 +30,7 @@ class Homescreen extends StatelessWidget {
                 height: 35,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: const [
                     Text("Montag"),
                     Text("Gericht"),
                   ],
