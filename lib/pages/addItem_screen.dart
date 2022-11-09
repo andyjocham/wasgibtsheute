@@ -61,7 +61,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
 
                     Navigator.pop(context);
                   },
-                  child: Text(inEditMode ? "Bearbeiten" : "Hinzufügen")),
+                  child: Text(inEditMode ? "Speichern" : "Hinzufügen")),
             ],
           ),
         ));

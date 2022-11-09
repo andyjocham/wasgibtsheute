@@ -25,6 +25,7 @@ class _GerichtelisteState extends State<Gerichteliste> {
         .gerichtelisteList;
 
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text("Gerichte"),
       ),
