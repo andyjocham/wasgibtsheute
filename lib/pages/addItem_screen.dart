@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:was_gibts_heute/models/list_item.dart';
 import 'package:flutter/material.dart';
 import '../config.dart';
@@ -61,7 +63,7 @@ class _AddItemScreenState extends State<AddItemScreen> {
 
                     Navigator.pop(context);
                   },
-                  child: Text(inEditMode ? "Bearbeiten" : "Hinzufügen")),
+                  child: Text(inEditMode ? "Speichern" : "Hinzufügen")),
             ],
           ),
         ));

@@ -25,6 +25,7 @@ class _GerichtelisteState extends State<Gerichteliste> {
         .gerichtelisteList;
 
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         title: const Text("Gerichte"),
       ),
@@ -43,7 +44,7 @@ class _GerichtelisteState extends State<Gerichteliste> {
                       Navigator.pushNamed(context, '/add', arguments: item)
                           .then((value) => setState(() {}));
                     },
-                    backgroundColor: Color(0xFF7BC043),
+                    backgroundColor: const Color(0xFF7BC043),
                     foregroundColor: Colors.white,
                     icon: Icons.edit,
                     label: 'Bearbeiten',

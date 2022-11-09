@@ -14,7 +14,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Configuration(
       gerichtelisteList: [
-        ListItem(name: "Brot"),
+        ListItem(name: "Spaghetti"),
+        ListItem(name: "Schnitzel"),
+        ListItem(name: "Wurstsalat"),
+        ListItem(name: "Burger"),
+        ListItem(name: "Maultaschensuppe"),
+        ListItem(name: "Chinesische Nudeln"),
+        ListItem(name: "Käßspätzle"),
+        ListItem(name: "Gemüseauflauf"),
+        ListItem(name: "Kartoffelauflauf"),
+        ListItem(name: "Steak"),
+        ListItem(name: "Sandwich"),
+        ListItem(name: "Lauchsuppe"),
       ],
       child: MaterialApp(
           title: "Was gibts heute?",
