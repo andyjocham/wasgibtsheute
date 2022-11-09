@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:was_gibts_heute/models/list_item.dart';
 import 'package:flutter/material.dart';
 import '../config.dart';
